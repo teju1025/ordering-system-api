@@ -2,6 +2,3 @@ Flask==1.1.2
 Flask-RESTful==0.3.8
 requests==2.25.1
 gunicorn==19.6.0
-flask_cors==3.0.10
-Jinja2==2.11.3
-markupsafe==2.0.1
