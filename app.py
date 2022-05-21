@@ -29,4 +29,4 @@ api.add_resource(IngredientStock, '/ingredients/stock')
 api.add_resource(EditIngredientStock, '/ingredients/stock/edit')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
