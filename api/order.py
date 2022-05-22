@@ -24,10 +24,7 @@ class Order(Resource):
             orders = json.load(f)
         current_order_id = len(orders)
         orders[current_order_id] = {
-            loc_dt = datetime.datetime.now()
-            time_del = datetime.timedelta(hours=8)
-            new_dt = loc_dt + time_del
-            '訂購時間': new_dt.strftime("%Y-%m-%d %H:%M:%S"),
+            '訂購時間': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             '訂購內容': order,
             '總金額': self._cacl_order_price(order)
         }
