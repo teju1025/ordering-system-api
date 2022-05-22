@@ -24,7 +24,7 @@ class Order(Resource):
             orders = json.load(f)
         current_order_id = len(orders)
         orders[current_order_id] = {
-            loc_dt = datetime.now()
+            loc_dt = datetime.datetime.now()
             time_del = datetime.timedelta(hours=8)
             new_dt = loc_dt + time_del
             '訂購時間': new_dt.strftime("%Y-%m-%d %H:%M:%S"),
