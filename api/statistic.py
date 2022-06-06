@@ -24,6 +24,7 @@ class Statistic(Resource) :
         statistic = {}
         for food in foods:
             statistic[food] = {
+                '銷售量':0,
                 '銷售成本': 0,
                 '銷售收入': 0
             }
@@ -47,7 +48,8 @@ class Statistic(Resource) :
                             cost += ingredients[ingredient]['成本'] * foods[food]['食材'][ingredient]
                             
                         income += foods[food]['價格']
-                        
+
+                        statistic[food]['銷售量'] += num
                         statistic[food]['銷售成本'] += cost * num
                         statistic[food]['銷售收入'] += income * num
             return jsonify(statistic)
@@ -65,6 +67,7 @@ class Statistic(Resource) :
                             
                         income += foods[food]['價格']
                         
+                        statistic[food]['銷售量'] += num
                         statistic[food]['銷售成本'] += cost * num
                         statistic[food]['銷售收入'] += income * num
             return jsonify(statistic)
@@ -82,6 +85,7 @@ class Statistic(Resource) :
                             
                         income += foods[food]['價格']
                         
+                        statistic[food]['銷售量'] += num
                         statistic[food]['銷售成本'] += cost * num
                         statistic[food]['銷售收入'] += income * num
             return jsonify(statistic)
@@ -96,6 +100,7 @@ class Statistic(Resource) :
                     
                 income += foods[food]['價格']
                 
+                statistic[food]['銷售量'] += num
                 statistic[food]['銷售成本'] += cost * num
                 statistic[food]['銷售收入'] += income * num        
         return jsonify(statistic)
