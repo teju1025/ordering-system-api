@@ -10,6 +10,7 @@ from api.ingredients import Ingredients, IngredientStock, AddIngredient, EditIng
 from api.menu import Menu, AddMenu, DeleteMenu
 from api.order import Order
 from api.history import History
+from api.statistic import Statistic
 
 # 這邊設定主要是讓傳遞的資料可以是中文
 app.config['JSON_AS_ASCII'] = False
@@ -27,6 +28,7 @@ api.add_resource(AddMenu, '/menu/add')
 api.add_resource(DeleteMenu, '/menu/delete')
 api.add_resource(IngredientStock, '/ingredients/stock')
 api.add_resource(EditIngredientStock, '/ingredients/stock/edit')
+api.add_resource(Statistic, '/statistic')
 
 if __name__ == '__main__':
     app.run(debug=False)
