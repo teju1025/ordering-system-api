@@ -87,16 +87,15 @@ class Statistic(Resource) :
             return jsonify(statistic)
 
         for order in history:
-            if dateBegin <= datetime.datetime.strptime(history[order]['訂購時間'], '%Y-%m-%d %H:%M:%S') <= dateEnd:
-                for food in history[order]['訂購內容']:
-                    num = history[order]['訂購內容'][food]
-                    cost = 0
-                    income = 0
-                    for ingredient in foods[food]['食材']:
-                        cost += ingredients[ingredient]['成本'] * foods[food]['食材'][ingredient]
-                        
-                    income += foods[food]['價格']
+            for food in history[order]['訂購內容']:
+                num = history[order]['訂購內容'][food]
+                cost = 0
+                income = 0
+                for ingredient in foods[food]['食材']:
+                    cost += ingredients[ingredient]['成本'] * foods[food]['食材'][ingredient]
                     
-                    statistic[food]['銷售成本'] += cost * num
-                    statistic[food]['銷售收入'] += income * num        
+                income += foods[food]['價格']
+                
+                statistic[food]['銷售成本'] += cost * num
+                statistic[food]['銷售收入'] += income * num        
         return jsonify(statistic)
